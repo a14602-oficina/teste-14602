@@ -385,6 +385,37 @@ INSERT INTO `marca` (`codmarca`, `marca`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `lojas`
+--
+
+DROP TABLE IF EXISTS `lojas`;
+CREATE TABLE `lojas` (
+  `stamp` int(11) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `local` varchar(200) NOT NULL,
+  `telefone` varchar(30) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `website` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empregados`
+--
+
+DROP TABLE IF EXISTS `empregados`;
+CREATE TABLE `empregados` (
+  `id` int(11) NOT NULL,
+  `idloja` int(11) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `funcao` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `proprietario_veiculo`
 --
 
@@ -468,6 +499,19 @@ ALTER TABLE `marca`
   ADD PRIMARY KEY (`codmarca`);
 
 --
+-- Índices para tabela `lojas`
+--
+ALTER TABLE `lojas`
+  ADD PRIMARY KEY (`stamp`);
+
+--
+-- Índices para tabela `empregados`
+--
+ALTER TABLE `empregados`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idloja` (`idloja`);
+
+--
 -- Índices para tabela `proprietario_veiculo`
 --
 ALTER TABLE `proprietario_veiculo`
@@ -511,6 +555,18 @@ ALTER TABLE `inspetor`
 --
 ALTER TABLE `marca`
   MODIFY `codmarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT de tabela `lojas`
+--
+ALTER TABLE `lojas`
+  MODIFY `stamp` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `empregados`
+--
+ALTER TABLE `empregados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `proprietario_veiculo`
