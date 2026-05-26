@@ -46,10 +46,10 @@ app.post('/', async (req, res) => {
 
 
 // Rota para obter todas as lojas
-app.get('/lojas', async (req, res) => {
+app.post('/empregados', async (req, res) => {
     try {
         const [rows] = 
-        await db.query('SELECT * FROM lojas ORDER BY lojas asc;');
+        await db.query('SELECT * FROM empreagados ORDER BY empregados asc;');
         res.json(rows);
     } catch (error) {
         res.status(500).json({ error: error.message });
